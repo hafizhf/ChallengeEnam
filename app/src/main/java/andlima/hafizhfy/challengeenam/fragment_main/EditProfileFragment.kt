@@ -141,7 +141,6 @@ class EditProfileFragment : Fragment() {
                     response: Response<GetUserItem>
                 ) {
                     if (response.isSuccessful) {
-                        snackbarLong(requireView(), "Update saved")
 
                         // Get something from data store
                         userManager = UserManager(requireContext())
@@ -151,6 +150,7 @@ class EditProfileFragment : Fragment() {
 
                                 GlobalScope.launch {
                                     userManager.clearData()
+
 
                                     userManager.loginUserData(
                                         response.body()!!.username,
@@ -165,6 +165,8 @@ class EditProfileFragment : Fragment() {
                                 }
                             })
                         })
+
+                        snackbarLong(requireView(), "Update saved")
 
                         Navigation.findNavController(view!!)
                             .navigate(R.id.action_editProfileFragment_to_homeFragment)

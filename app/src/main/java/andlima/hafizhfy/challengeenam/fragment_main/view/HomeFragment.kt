@@ -59,7 +59,7 @@ class HomeFragment : Fragment(), FilmView {
 
         // Get all film data from presenter
         presenter = FilmPresenter(this) {
-            // Hide loading when
+            // Hide loading when its done
             nothing_handler.visibility = View.GONE
             loading_content.visibility = View.GONE
         }

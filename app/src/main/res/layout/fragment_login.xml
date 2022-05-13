@@ -215,7 +215,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Moovie"
+            android:text="Moovie: Chapter VI"
             android:textColor="@color/main"
             android:textSize="24sp"
             android:fontFamily="@font/product_sans_regular"/>

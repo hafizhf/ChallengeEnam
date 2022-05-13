@@ -83,6 +83,10 @@ class FavoriteFragment : Fragment(), FilmFavoriteView {
     }
 
     override fun onSuccess(msg: String, favFilm: List<FavFilm>) {
+        nothing_handler.visibility = View.GONE
+        loading_content.visibility = View.GONE
+        no_favorite_handler.visibility = View.GONE
+
         rv_favorite_film_list.layoutManager = LinearLayoutManager(requireContext())
         rv_favorite_film_list.adapter = AdapterFilmFavorite(favFilm) {
             val selectedData = bundleOf("SELECTED_DATA" to it)
@@ -93,5 +97,8 @@ class FavoriteFragment : Fragment(), FilmFavoriteView {
 
     override fun onError(msg: String) {
         toast(requireContext(), msg)
+        nothing_handler.visibility = View.GONE
+        loading_content.visibility = View.GONE
+        no_favorite_handler.visibility = View.VISIBLE
     }
 }
