@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/drawable/ic_fav_grey.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/drawable/ic_user.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/layout/fragment_edit_profile.xml" value="0.16394927536231885" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/layout/fragment_favorite.xml" value="0.209375" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/layout/fragment_login.xml" value="0.209375" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeEnam/app/src/main/res/layout/fragment_profile.xml" value="0.209375" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable-v24/ic_show_pwd.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable-v24/rounded.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_eye.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_eye_off.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_icon_backgroud.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_icon_foreground.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_icon_rounded.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_nothing.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/ic_show_pwd.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/drawable/rounded.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/fragment_detail.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/fragment_edit_profile.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/fragment_profile.xml" value="0.21951219512195122" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/layout/item_film.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ChallengeLima/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
