@@ -14,9 +14,14 @@ import andlima.hafizhfy.challengeenam.model.login.GetUserItem
 import andlima.hafizhfy.challengeenam.model.login.PutUser
 import andlima.hafizhfy.challengeenam.network.ApiClient
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
+import android.util.Patterns
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -27,6 +32,7 @@ class EditProfileFragment : Fragment() {
 
     // Get data store
     lateinit var userManager: UserManager
+    lateinit var imageURI: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +47,8 @@ class EditProfileFragment : Fragment() {
 
         // Get something from data store
         userManager = UserManager(requireContext())
+
+        imageURI = ""
 
         var id = ""
         var avatar = ""
@@ -75,6 +83,12 @@ class EditProfileFragment : Fragment() {
                                     et_edit_name.setText(username)
                                     et_edit_email.setText(email)
                                     et_edit_avatar.setText(avatar)
+                                    if (Patterns.WEB_URL.matcher(avatar).matches()) {
+                                        Glide.with(this).load(avatar).into(iv_edit_image)
+                                    } else {
+                                        val uri = Uri.parse(avatar)
+                                        iv_edit_image.setImageURI(uri)
+                                    }
 
                                     if (completeName == "complete_name $id" || completeName == "") {
                                         et_edit_complete_name.setText("")
@@ -94,6 +108,10 @@ class EditProfileFragment : Fragment() {
                                         et_edit_address.setText(address)
                                     }
 
+                                    btn_edit_image.setOnClickListener {
+                                        pickImageFromGallery()
+                                    }
+
                                     btn_save_profile.setOnClickListener {
                                         when {
                                             et_edit_name.text.toString() == "" -> {
@@ -103,6 +121,7 @@ class EditProfileFragment : Fragment() {
                                                 toast(requireContext(), "Email field cannot be empty")
                                             }
                                             else -> {
+//                                                alertDialog(requireContext(), "Image URI empty?", imageURI) {}
                                                 updateProfile(
                                                     id!!.toInt(),
                                                     et_edit_dateofbirth.text.toString(),
@@ -110,7 +129,8 @@ class EditProfileFragment : Fragment() {
                                                     et_edit_avatar.text.toString(),
                                                     et_edit_complete_name.text.toString(),
                                                     et_edit_email.text.toString(),
-                                                    et_edit_name.text.toString()
+                                                    et_edit_name.text.toString(),
+                                                    imageURI
                                                 )
                                             }
                                         }
@@ -131,7 +151,8 @@ class EditProfileFragment : Fragment() {
         avatar: String,
         complete_name: String,
         email: String,
-        username: String
+        username: String,
+        imageURI: String
     ) {
         ApiClient.instanceUser
             .updateUser(id, PutUser(dateofbirth, address, avatar, complete_name, email, username))
@@ -151,17 +172,29 @@ class EditProfileFragment : Fragment() {
                                 GlobalScope.launch {
                                     userManager.clearData()
 
-
-                                    userManager.loginUserData(
-                                        response.body()!!.username,
-                                        response.body()!!.email,
-                                        response.body()!!.avatar,
-                                        pwd,
-                                        userID,
-                                        response.body()!!.complete_name,
-                                        response.body()!!.address,
-                                        response.body()!!.dateofbirth
-                                    )
+                                    if (imageURI != "") {
+                                        userManager.loginUserData(
+                                            response.body()!!.username,
+                                            response.body()!!.email,
+                                            imageURI,
+                                            pwd,
+                                            userID,
+                                            response.body()!!.complete_name,
+                                            response.body()!!.address,
+                                            response.body()!!.dateofbirth
+                                        )
+                                    } else {
+                                        userManager.loginUserData(
+                                            response.body()!!.username,
+                                            response.body()!!.email,
+                                            response.body()!!.avatar,
+                                            pwd,
+                                            userID,
+                                            response.body()!!.complete_name,
+                                            response.body()!!.address,
+                                            response.body()!!.dateofbirth
+                                        )
+                                    }
                                 }
                             })
                         })
@@ -189,4 +222,27 @@ class EditProfileFragment : Fragment() {
 
             })
     }
+
+    private fun pickImageFromGallery() {
+//        val intent = Intent(Intent.ACTION_PICK)
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+        intent.type = "image/*"
+
+        startActivityForResult(intent, 100)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 100 && resultCode == AppCompatActivity.RESULT_OK) {
+            iv_edit_image.setImageURI(data?.data)
+            getImageURI(data?.data.toString())
+//            alertDialog(requireContext(), "Image URI", Patterns.WEB_URL.matcher(data?.data.toString()).matches().toString()) {}
+        }
+    }
+
+    private fun getImageURI(uri: String) {
+        this.imageURI = uri
+    }
+
 }

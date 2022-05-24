@@ -205,21 +205,21 @@ class LoginFragment : Fragment() {
 
                 loading_check_user_loggedin.visibility = View.VISIBLE
                 if (sharedEmail != "" && sharedPassword != "") {
-                    GlobalScope.launch {
-                        isUserDataFine = isDataUserSame(requireContext(), this@LoginFragment, (requireContext() as MainActivity))
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            if (isUserDataFine) {
-                                Navigation.findNavController(view!!).navigate(R.id.action_loginFragment_to_homeFragment)
-                                loading_check_user_loggedin.visibility = View.GONE
-                                toast(requireContext(), "Welcome back")
-                            } else {
-                                loading_check_user_loggedin.visibility = View.GONE
-                            }
-
-//                            temp_email.text = sharedEmail
-//                            temp_password.text = sharedPassword
-                        }, 200)
-                    }
+//                    GlobalScope.launch {
+//                        isUserDataFine = isDataUserSame(requireContext(), this@LoginFragment, (requireContext() as MainActivity))
+//                        Handler(Looper.getMainLooper()).postDelayed({
+//                            if (isUserDataFine) {
+//                                Navigation.findNavController(view!!).navigate(R.id.action_loginFragment_to_homeFragment)
+//                                loading_check_user_loggedin.visibility = View.GONE
+//                                toast(requireContext(), "Welcome back")
+//                            } else {
+//                                loading_check_user_loggedin.visibility = View.GONE
+//                            }
+//                        }, 200)
+//                    }
+                    Navigation.findNavController(view!!).navigate(R.id.action_loginFragment_to_homeFragment)
+                    loading_check_user_loggedin.visibility = View.GONE
+                    toast(requireContext(), "Welcome back")
                 } else {
                     loading_check_user_loggedin.visibility = View.GONE
                 }

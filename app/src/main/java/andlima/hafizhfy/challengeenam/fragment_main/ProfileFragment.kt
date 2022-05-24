@@ -15,6 +15,8 @@ import andlima.hafizhfy.challengeenam.func.toast
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
+import android.util.Patterns
 import androidx.lifecycle.asLiveData
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
@@ -91,7 +93,12 @@ class ProfileFragment : Fragment() {
                                     dateOfBirth = g.toString()
 
                                     // Show data from SharedPreferences into things in profile layout
-                                    Glide.with(this).load(avatar).into(iv_image_detail)
+                                    if (Patterns.WEB_URL.matcher(avatar).matches()) {
+                                        Glide.with(this).load(avatar).into(iv_image_detail)
+                                    } else {
+                                        val uri = Uri.parse(avatar)
+                                        iv_image_detail.setImageURI(uri)
+                                    }
                                     tv_username_detail.text = username
                                     tv_email_detail.text = email
 

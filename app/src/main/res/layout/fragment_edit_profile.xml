@@ -17,15 +17,47 @@
             android:orientation="vertical"
             android:padding="30dp">
 
-            <TextView
-                android:id="@+id/title_edit_profile"
+<!--            <TextView-->
+<!--                android:id="@+id/title_edit_profile"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:fontFamily="@font/product_sans_bold"-->
+<!--                android:text="Edit Profile"-->
+<!--                android:textSize="28sp"-->
+<!--                android:textStyle="bold" />-->
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/product_sans_bold"
-                android:text="Edit Profile"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+
+                android:layout_gravity="center_horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/container_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="300dp"
+                    app:cardElevation="0dp"
+                    android:layout_marginBottom="15dp">
+
+                    <ImageView
+                        android:id="@+id/iv_edit_image"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/ic_logo"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <ImageView
+                    android:id="@+id/btn_edit_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"
+                    android:layout_alignBottom="@+id/container_image"
+                    android:layout_alignEnd="@+id/container_image"/>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -114,7 +146,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/product_sans_regular"
-                android:text="Image URL" />
+                android:text="Image URL"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/et_edit_avatar"
@@ -125,7 +158,8 @@
                 android:fontFamily="@font/product_sans_regular"
                 android:hint="Your image URL"
                 android:minHeight="48dp"
-                android:padding="13dp" />
+                android:padding="13dp"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="wrap_content"
